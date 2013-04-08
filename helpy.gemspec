@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "helpy.gemspec",
     "lib/boolean_extension.rb",
     "lib/helpy.rb",
     "lib/money_extension.rb",
