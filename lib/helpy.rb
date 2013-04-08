@@ -9,9 +9,9 @@ Extend FixNum, Float, Bignum and String with phone, money and boolean functional
 =end
 
 $LOAD_PATH.unshift File.dirname(__FILE__)
-require 'lib/boolean_extension'
-require 'lib/phone_extension'
-require 'lib/money_extension'
+require 'boolean_extension'
+require 'phone_extension'
+require 'money_extension'
 
 class Fixnum
   include Boolinators
