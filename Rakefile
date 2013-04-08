@@ -15,12 +15,13 @@ require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "helpy"
+  gem.version = "0.1.0"
   gem.homepage = "http://github.com/corsonx/helpy"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = "Extensions to strings and numbers to enable phone formatting, money formatting, and true/false testing"
+  gem.description = "Check out then readme!"
   gem.email = "nucleardragoninc@gmail.com"
-  gem.authors = ["brad"]
+  gem.authors = ["Brad Corson"]
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new

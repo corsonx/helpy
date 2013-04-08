@@ -1,6 +1,28 @@
 = helpy
 
-Description goes here.
+Helpy, well, helps you. It extends several of ruby's classes to add some
+functionality. 
+
+1) You can call .monetize on a string or number, and it returns
+a formatted string that looks like, well, a dollar value. Default format is
+U.S. formatting, but you can pass a hash of options in to change the format.
+The defaults look like this: {:currency_symbol => "$", :delimiter => ",",
+:decimal => ".", :currency_before => true, :no_decimal => false}. You only
+need to supply the values you are changing.
+
+2) Call .phone on any number or string. The number or string must contain
+exactly 7 or 10 digits (strings can contain any number of other characters,
+they get stripped out). Again, you can change the formatting. Here are the
+defaults: {:area_sep => '-', :num_sep => '-', :exceptions => true}. If you
+pass a '(' as the area separator, helpy will wrap the area in open-and-closing
+parens. 
+
+3) True and false testing! This is great for data returned from html forms,
+legacy systems, or anything that has an unknown or variable 'true/false'
+format. Call .truey? on any Boolean, FixNum, Float, Bignum or String. If the value is
+a true, 1, or is a string consisting of only 'true', 'yes', 't', 'y', or '1'
+(case-insensitive), helpy returns true. Call .falsy? to return whether it
+looks false. falsy? also returns false for empty strings.
 
 == Contributing to helpy
  
@@ -14,6 +36,6 @@ Description goes here.
 
 == Copyright
 
-Copyright (c) 2013 brad. See LICENSE.txt for
+Copyright (c) 2013 Brad Corson. See LICENSE.txt for
 further details.
 
