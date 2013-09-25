@@ -20,7 +20,7 @@ describe String do
   end
   
   it "should raise an exception for too-short input" do
-    expect { '551234'.phone }.should raise_exception
+    expect { '551234'.phone({:exceptions => true}) }.should raise_exception
   end
   
   it "should allow options" do
@@ -28,7 +28,7 @@ describe String do
     '8005551234'.phone({:area_sep => '('}).should eq('(800)555-1234')
     '8005551234'.phone({:num_sep => '.'}).should eq('800-555.1234')
     expect { '551234'.phone({:exceptions => false}) }.should_not raise_exception
-    '551234'.phone({:exceptions => false}).should eq('')
+    '551234'.phone({:exceptions => false}).should eq('551234')
   end
   
 end
@@ -45,13 +45,21 @@ describe Fixnum do
   it "should default correctly" do
     5551234.phone.should eq('555-1234')
   end
+
+  it "should default correctly for full numbers" do
+    18005551234.phone.should eq('1-800-555-1234')
+  end
+
+  it "should use area seperator correctly" do
+    18005551234.phone({:area_sep => '('}).should eq('1(800)555-1234')
+  end
   
-  it "should raise an exception, because a full 10 digit number is a Bignum" do
-    expect { 8005551234.phone }.should raise_exception
+  it "should not raise an exception, because a full 10 digit number is valid" do
+    expect { 8005551234.phone({:exceptions => true}) }.should_not raise_exception
   end
   
   it "should raise an exception for a too-short number" do
-    expect { 551234.phone }.should raise_exception
+    expect { 551234.phone({:exceptions => true}) }.should raise_exception
   end
   
 end
@@ -68,16 +76,16 @@ describe Float do
     555123.4.phone.should eq('555-1234')
   end
   
-  it "should raise an exception, because a full 10 digit number is a Bignum" do
-    expect { 8005551234.3.phone }.should raise_exception
+  it "should raise an exception, 12 digit number is invalid" do
+    expect { 8005551234.93.phone({:exceptions => true}) }.should raise_exception
   end
   
   it "should raise an exception for a too-short number" do
-    expect { 5512.2.phone }.should raise_exception
+    expect { 5512.2.phone({:exceptions => true}) }.should raise_exception
   end
   
   it "should raise an exception for a too-long number" do
-    expect { 5551234.2.phone }.should raise_exception
+    expect { 5551234.2.phone({:exceptions => true}) }.should raise_exception
   end
   
 end

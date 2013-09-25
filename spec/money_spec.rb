@@ -119,7 +119,7 @@ describe Bignum do
     (2**(0.size * 8 -2)).monetize({:no_decimal => true}).include?('.00').should eq(false)
     
     res = (2**(0.size * 8 -2)).monetize({:currency_before => false})
-    res[res.length-1].should eq('$')
+    res[res.length-1,1].should eq('$')
   end
 end
 
