@@ -68,10 +68,6 @@ GEM
     shoulda-context (1.2.1)
     shoulda-matchers (2.8.0)
       activesupport (>= 3.0.0)
-    simplecov (0.6.4)
-      multi_json (~> 1.0)
-      simplecov-html (~> 0.5.3)
-    simplecov-html (0.5.3)
     thread_safe (0.3.4)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
@@ -85,4 +81,3 @@ DEPENDENCIES
   rdoc (~> 3.12)
   rspec
   shoulda
-  simplecov (~> 0.6.4)
