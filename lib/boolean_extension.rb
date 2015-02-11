@@ -8,6 +8,7 @@ module Boolinators
   
   def falsey?
     (self == false ||                                           ## FalseClass
+     self == nil ||                                             ## NilClass
       (self.to_s.empty? rescue false) ||                        ## Empty Strings
       !(self.to_s.strip =~ /^false$|^no$|^f$|^n$|^off$|^0$/i).nil? || ## Strings
       (self == 0 rescue false) ||                               ## Integers

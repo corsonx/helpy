@@ -44,6 +44,9 @@ describe String do
                           :no_decimal => true}).should eq('$123.456')
   end
 
+  it "should display negative numbers correctly" do
+    '-123456'.monetize({:delimiter => ','}).should eq('-$123,456.00')
+  end
 end
 
 #######################
@@ -65,6 +68,10 @@ describe Fixnum do
                         :currency_before => false,
                         :delimiter => '.', 
                         :no_decimal => true}).should eq('123.456^')
+  end
+
+  it "should display negative numbers correctly" do
+    -123456.monetize({:delimiter => ','}).should eq('-$123,456.00')
   end
 end
 

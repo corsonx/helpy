@@ -44,3 +44,7 @@ end
 class FalseClass
   include Boolinators
 end
+
+class NilClass
+  include Boolinators
+end

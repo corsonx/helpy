@@ -36,6 +36,17 @@ looks false. falsy? also returns false for empty strings.
 
 == Copyright
 
-Copyright (c) 2013 Brad Corson. See LICENSE.txt for
+Copyright (c) 2015 Brad Corson. See LICENSE.txt for
 further details.
+
+== Deploying Changes
+* Commit and push changes
+* Bump the version:
+    rake version:write MAJOR=0 MINOR=3 PATCH=0
+    OR
+    rake version:bump:<major||minor||patch>
+* Push changes again
+* 'rake release'
+* delete gem from Gemfile.lock in projects you wish to update
+* in the projects you wish to update to new gem, 'bundle update --source gem-name'
 
